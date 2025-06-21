@@ -3,22 +3,1176 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vortex</title>
+    <title>
+      Vortex - Reimagining the Internet as a Structured, Intelligent Experience
+    </title>
+    <meta
+      name="description"
+      content="Vortex combines AI, structured knowledge graphs, immersive content, and social interaction into a unified, intelligent web ecosystem."
+    />
+    <meta
+      name="keywords"
+      content="AI, knowledge graph, digital platform, structured web, intelligent internet"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌀%3C/text%3E%3C/svg%3E"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: black;
-        color: white;
-        text-align: center;
-        padding-top: 20vh;
+      :root {
+        --bg-primary: #0a0a0a;
+        --bg-secondary: #1a1a1a;
+        --bg-card: #1c1c1e;
+        --accent-primary: #00d1ff;
+        --accent-secondary: #0066ff;
+        --text-primary: #ffffff;
+        --text-secondary: #e5e5e5;
+        --text-muted: #888888;
+        --border: #333333;
+        --shadow: rgba(0, 0, 0, 0.5);
+        --gradient-1: linear-gradient(135deg, #00d1ff 0%, #0066ff 100%);
+        --gradient-2: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
       }
-      h1 {
-        font-size: 3rem;
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Oxygen,
+          Ubuntu,
+          Cantarell,
+          sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Navigation */
+      .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 70px;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--accent-primary);
+      }
+
+      .nav-cta {
+        background: var(--gradient-1);
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: transform 0.3s ease;
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-2px);
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        background: radial-gradient(
+          ellipse at center,
+          #1a1a1a 0%,
+          #0a0a0a 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d1ff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+      }
+
+      .hero-content {
+        max-width: 800px;
+        padding: 0 24px;
+        z-index: 2;
+        position: relative;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 8vw, 5rem);
+        font-weight: 800;
+        margin-bottom: 24px;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+        animation: fadeInUp 1s ease-out 0.2s both;
+      }
+
+      .hero-cta {
+        display: inline-flex;
+        gap: 16px;
+        animation: fadeInUp 1s ease-out 0.4s both;
+      }
+
+      .btn-primary {
+        background: var(--gradient-1);
+        color: #000;
+        padding: 16px 32px;
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 209, 255, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--text-primary);
+        padding: 16px 32px;
+        border: 2px solid var(--border);
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Sections */
+      .section {
+        padding: 120px 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 24px;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--text-muted);
+        text-align: center;
+        margin-bottom: 60px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Features Grid */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 32px;
+        margin-top: 60px;
+      }
+
+      .feature-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 32px;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-1);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px var(--shadow);
+        border-color: var(--accent-primary);
+      }
+
+      .feature-card:hover::before {
+        opacity: 1;
+      }
+
+      .feature-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+        background: var(--gradient-1);
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+      }
+
+      .feature-card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        color: var(--text-primary);
+      }
+
+      .feature-card p {
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+
+      /* Problem/Solution Section */
+      .problem-solution {
+        background: var(--bg-secondary);
+        border-radius: 30px;
+        padding: 60px 40px;
+        margin: 60px 0;
+      }
+
+      .problem-solution h2 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: var(--accent-primary);
+      }
+
+      .problem-solution p {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        margin-bottom: 30px;
+      }
+
+      /* Video Section */
+      .video-section {
+        text-align: center;
+        margin: 80px 0;
+      }
+
+      .video-placeholder {
+        width: 100%;
+        max-width: 800px;
+        height: 450px;
+        background: var(--bg-card);
+        border: 2px dashed var(--border);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .video-placeholder::before {
+        content: "▶";
+        font-size: 4rem;
+        color: var(--accent-primary);
+        position: absolute;
+      }
+
+      .video-placeholder span {
+        color: var(--text-muted);
+        font-size: 1.125rem;
+        margin-top: 80px;
+      }
+
+      /* Testimonials */
+      .testimonials {
+        background: var(--bg-secondary);
+        padding: 80px 24px;
+        margin: 80px 0;
+        border-radius: 30px;
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+      }
+
+      .testimonial-placeholder {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 15px;
+        padding: 24px;
+        text-align: center;
+        opacity: 0.7;
+        transition: opacity 0.3s ease;
+      }
+
+      .testimonial-placeholder:hover {
+        opacity: 1;
+      }
+
+      .testimonial-placeholder .logo-placeholder {
+        width: 120px;
+        height: 40px;
+        background: var(--border);
+        border-radius: 8px;
+        margin: 0 auto 16px;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        text-align: center;
+        background: var(--gradient-2);
+        padding: 80px 40px;
+        border-radius: 30px;
+        margin: 80px 0;
+      }
+
+      .cta-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+      }
+
+      .cta-section p {
+        font-size: 1.125rem;
+        color: var(--text-muted);
+        margin-bottom: 40px;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--bg-secondary);
+        padding: 60px 24px 40px;
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+      }
+
+      .footer-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-primary);
+      }
+
+      .footer-copyright {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-top: 32px;
+        padding-top: 32px;
+        border-top: 1px solid var(--border);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-cta {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .section {
+          padding: 80px 16px;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .problem-solution {
+          padding: 40px 24px;
+        }
+
+        .video-placeholder {
+          height: 250px;
+        }
+
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .cta-section {
+          padding: 60px 24px;
+        }
+
+        .footer-links {
+          flex-direction: column;
+          gap: 16px;
+        }
+      }
+
+      /* Accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* Focus states */
+      button:focus,
+      a:focus {
+        outline: 2px solid var(--accent-primary);
+        outline-offset: 2px;
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(5px);
+        animation: fadeIn 0.3s ease-out;
+      }
+
+      .modal.show {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 0;
+        width: 90%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: slideIn 0.3s ease-out;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 24px 32px;
+        border-bottom: 1px solid var(--border);
+        background: var(--gradient-2);
+        border-radius: 20px 20px 0 0;
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+
+      .close {
+        color: var(--text-muted);
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: color 0.3s ease;
+        line-height: 1;
+      }
+
+      .close:hover {
+        color: var(--accent-primary);
+      }
+
+      .demo-form {
+        padding: 32px;
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-secondary);
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--bg-secondary);
+        color: var(--text-primary);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(0, 209, 255, 0.1);
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+        margin-top: 32px;
+      }
+
+      .form-actions .btn-primary,
+      .form-actions .btn-secondary {
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .form-actions .btn-primary {
+        background: var(--gradient-1);
+        color: #000;
+      }
+
+      .form-actions .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0, 209, 255, 0.3);
+      }
+
+      .form-actions .btn-secondary {
+        background: transparent;
+        color: var(--text-muted);
+        border: 1px solid var(--border);
+      }
+
+      .form-actions .btn-secondary:hover {
+        color: var(--text-primary);
+        border-color: var(--text-muted);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-30px) scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      /* Mobile responsiveness for modal */
+      @media (max-width: 768px) {
+        .modal-content {
+          width: 95%;
+          margin: 20px;
+        }
+
+        .modal-header {
+          padding: 20px 24px;
+        }
+
+        .demo-form {
+          padding: 24px;
+        }
+
+        .form-actions {
+          flex-direction: column;
+        }
+
+        .form-actions .btn-primary,
+        .form-actions .btn-secondary {
+          width: 100%;
+          text-align: center;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>Welcome to Vortex</h1>
-    <p>The future of the web, reimagined.</p>
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <div class="logo">🌀 Vortex</div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#vision">Vision</a></li>
+          <li><a href="#product">Product</a></li>
+          <li><a href="#demo">Demo</a></li>
+        </ul>
+        <button class="nav-cta" onclick="openDemoModal()">Request Demo</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>
+          Reimagining the Internet as a Structured, Intelligent Experience
+        </h1>
+        <p class="hero-subtitle">
+          Vortex combines AI, structured knowledge graphs, immersive content,
+          and social interaction into a unified, intelligent web ecosystem.
+          Explore knowledge through dynamic portals, interact with digital
+          personas, and join communities built around shared interests.
+        </p>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="openDemoModal()">
+            Schedule Demo
+          </button>
+          <a href="#vision" class="btn-secondary">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="section" id="about">
+      <div class="problem-solution">
+        <h2>The Problem</h2>
+        <p>
+          Today's digital experience is fragmented and chaotic. Users bounce
+          between platforms for social interaction, learning, and
+          commerce—resulting in shallow engagement, information overload, and
+          lost potential. The web has become a collection of disconnected silos
+          rather than an intelligent, interconnected knowledge space.
+        </p>
+
+        <h2>The Vortex Solution</h2>
+        <p>
+          Vortex introduces a new paradigm: instead of browsing disconnected
+          pages, users explore "portals"—intelligent, multimedia environments
+          tied to specific entities like books, people, events, and ideas. Our
+          platform delivers a structured, immersive web experience powered by
+          AI, where every element is interconnected through a dynamic knowledge
+          graph.
+        </p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="product">
+      <h2 class="section-title">Core Features</h2>
+      <p class="section-subtitle">
+        Discover how Vortex transforms the way we interact with knowledge and
+        each other online
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🌐</div>
+          <h3>Entity-Based Portals</h3>
+          <p>
+            Every core element becomes a richly detailed portal combining
+            AI-generated content, user contributions, multimedia, and contextual
+            linking—creating dynamic knowledge spaces.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🤖</div>
+          <h3>AI Digital Clones</h3>
+          <p>
+            Interact with AI simulations of historical figures, authors, and
+            creators. These digital personas can guide exploration, answer
+            questions, and lead immersive discussions.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔗</div>
+          <h3>Knowledge Graph Navigation</h3>
+          <p>
+            Our dynamic knowledge graph maps relationships between entities,
+            enabling intelligent recommendations and organic discovery paths
+            through interconnected topics.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Social Discovery Layer</h3>
+          <p>
+            Follow entities, join interest-based communities, contribute
+            content, and host real-time discussions embedded within the fabric
+            of knowledge exploration.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3>P2P Marketplace</h3>
+          <p>
+            Built-in commerce allows creators to monetize content, run
+            subscriptions, and crowdfund projects without leaving the platform.
+            Create, sell, and discover in one unified ecosystem.
+          </p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Immersive Experiences</h3>
+          <p>
+            Each topic becomes a multimedia-rich gateway into living knowledge
+            spaces with interactive timelines, 3D visualizations, and contextual
+            storytelling.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="section" id="vision">
+      <h2 class="section-title">Our Vision</h2>
+      <p class="section-subtitle">
+        Building the most intelligent, immersive, and interconnected platform
+        for knowledge and cultural exploration
+      </p>
+
+      <div class="problem-solution">
+        <h2>Why Now?</h2>
+        <p>
+          AI is transforming user expectations and capabilities. The convergence
+          of large language models, knowledge graphs, and immersive technologies
+          creates an unprecedented opportunity to reimagine how we interact with
+          information and each other online.
+        </p>
+
+        <h2>The Future</h2>
+        <p>
+          In 5–10 years, Vortex will become the default interface for accessing
+          the world's knowledge—serving as a visual, conversational, and
+          economic layer on top of the internet. We're not replacing the web;
+          we're reorganizing it to unlock its full potential as a structured,
+          intelligent ecosystem.
+        </p>
+
+        <h2>Business Model</h2>
+        <p>
+          Multiple revenue streams including premium subscriptions, digital
+          goods marketplace, affiliate commerce, event ticketing, creator
+          monetization tools, and enterprise solutions for knowledge management
+          and collaboration.
+        </p>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" id="demo">
+      <div class="cta-section">
+        <h2>Ready to Experience the Future?</h2>
+        <p>
+          Join leading innovators, educators, and creators who are already
+          exploring the next generation of digital knowledge interaction.
+        </p>
+        <div class="hero-cta">
+          <button class="btn-primary" onclick="openDemoModal()">
+            Schedule Demo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#about">About</a>
+          <a href="#vision">Vision</a>
+          <a href="#product">Product</a>
+          <a href="mailto:contact@vortex.com">Contact</a>
+          <a href="mailto:investors@vortex.com">Investors</a>
+          <a href="#demo">Demo</a>
+        </div>
+        <div class="footer-copyright">
+          &copy; 2025 Vortex. All rights reserved. Reimagining the Internet as a
+          Structured, Intelligent Experience.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Demo Request Modal -->
+    <div id="demoModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Request a Demo</h2>
+          <span class="close" onclick="closeDemoModal()">&times;</span>
+        </div>
+        <form id="demoForm" class="demo-form" onsubmit="submitDemoForm(event)">
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="company">Company/Organization *</label>
+            <input type="text" id="company" name="company" required />
+          </div>
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" name="jobTitle" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <div class="form-group">
+            <label for="message">Tell us about your interest in Vortex</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="What aspects of Vortex are you most interested in exploring?"
+            ></textarea>
+          </div>
+          <div class="form-actions">
+            <button
+              type="button"
+              class="btn-secondary"
+              onclick="closeDemoModal()"
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Request Demo</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector(".nav");
+        if (window.scrollY > 50) {
+          nav.style.background = "rgba(10, 10, 10, 0.98)";
+        } else {
+          nav.style.background = "rgba(10, 10, 10, 0.95)";
+        }
+      });
+
+      // Intersection Observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe feature cards and sections
+      document
+        .querySelectorAll(".feature-card, .problem-solution, .cta-section")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+
+      // Modal Functions
+      function openDemoModal() {
+        const modal = document.getElementById("demoModal");
+        modal.classList.add("show");
+        document.body.style.overflow = "hidden";
+        // Focus on first input for better UX
+        setTimeout(() => {
+          document.getElementById("fullName").focus();
+        }, 300);
+      }
+
+      function closeDemoModal() {
+        const modal = document.getElementById("demoModal");
+        modal.classList.remove("show");
+        document.body.style.overflow = "auto";
+        // Reset form
+        document.getElementById("demoForm").reset();
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("demoModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeDemoModal();
+          }
+        });
+
+      // Close modal with Escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeDemoModal();
+        }
+      });
+
+      // Form submission
+      function submitDemoForm(event) {
+        event.preventDefault();
+
+        const form = document.getElementById("demoForm");
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        // Basic validation
+        if (!data.fullName || !data.email || !data.company) {
+          alert("Please fill in all required fields.");
+          return;
+        }
+
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = "Sending...";
+        submitBtn.disabled = true;
+
+        // Create email content
+        const emailContent = `Hello Vortex Team,
+
+I'm interested in requesting a demo of the Vortex platform.
+
+Contact Information:
+- Name: ${data.fullName}
+- Email: ${data.email}
+- Company: ${data.company}
+- Job Title: ${data.jobTitle || "Not specified"}
+- Phone: ${data.phone || "Not specified"}
+
+Message:
+${data.message || "No additional message provided."}
+
+Best regards,
+${data.fullName}`;
+
+        // Try to open email client
+        const subject = encodeURIComponent("Demo Request from " + data.company);
+        const body = encodeURIComponent(emailContent);
+        const mailtoLink = `mailto:vortex.ai99@gmail.com?subject=${subject}&body=${body}`;
+
+        // For better testing experience, show the email content
+        const emailPreview = `
+EMAIL TO: vortex.ai99@gmail.com
+SUBJECT: Demo Request from ${data.company}
+
+${emailContent}
+
+---
+Click OK to attempt opening your email client, or copy the above content to send manually.
+        `;
+
+        // Show email preview first
+        setTimeout(() => {
+          const userChoice = confirm(emailPreview);
+          if (userChoice) {
+            // Try to open email client
+            try {
+              window.location.href = mailtoLink;
+            } catch (error) {
+              // Fallback: copy to clipboard if possible
+              if (navigator.clipboard) {
+                navigator.clipboard
+                  .writeText(emailContent)
+                  .then(() => {
+                    alert(
+                      "Email content copied to clipboard! Please paste it in your email client and send to vortex.ai99@gmail.com"
+                    );
+                  })
+                  .catch(() => {
+                    alert(
+                      "Please copy the email content shown above and send it to vortex.ai99@gmail.com"
+                    );
+                  });
+              } else {
+                alert(
+                  "Please copy the email content shown above and send it to vortex.ai99@gmail.com"
+                );
+              }
+            }
+          }
+
+          alert(
+            "Thank you for your interest! We'll get back to you within 24 hours."
+          );
+          closeDemoModal();
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }, 500);
+      }
+    </script>
   </body>
 </html>
