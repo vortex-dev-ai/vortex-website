@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Vortex - Reimagining the Internet as a Structured, Intelligent Experience
-    </title>
+    <title>Vortex - The Portal Web — Structured, Intelligent, Alive</title>
     <meta
       name="description"
-      content="Vortex combines AI, structured knowledge graphs, immersive content, and social interaction into a unified, intelligent web ecosystem."
+      content="Vortex is an immersive platform that redefines how users engage with digital content—merging AI, social discovery, and commerce into one unified experience."
     />
     <meta
       name="keywords"
@@ -20,24 +18,34 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌀%3C/text%3E%3C/svg%3E"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
     <style>
       :root {
-        --bg-primary: #0a0a0a;
-        --bg-secondary: #1a1a1a;
-        --bg-card: #1c1c1e;
-        --accent-primary: #00d1ff;
-        --accent-secondary: #0066ff;
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #0f0f1a;
+        --bg-card: #141420;
+        --accent-primary: #6366f1;
+        --accent-secondary: #8b5cf6;
         --text-primary: #ffffff;
-        --text-secondary: #e5e5e5;
-        --text-muted: #888888;
-        --border: #333333;
+        --text-secondary: #e4e4e7;
+        --text-muted: #a1a1aa;
+        --border: #27272a;
         --shadow: rgba(0, 0, 0, 0.5);
-        --gradient-1: linear-gradient(135deg, #00d1ff 0%, #0066ff 100%);
-        --gradient-2: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+        --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        --gradient-2: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 100%);
+        --gradient-accent: linear-gradient(
+          135deg,
+          #6366f1 0%,
+          #8b5cf6 50%,
+          #ec4899 100%
+        );
       }
 
       * {
@@ -63,20 +71,22 @@
           sans-serif;
         background: var(--bg-primary);
         color: var(--text-primary);
-        line-height: 1.6;
+        line-height: 1.65;
         overflow-x: hidden;
+        font-weight: 400;
+        letter-spacing: -0.005em;
       }
 
-      /* Navigation */
+      /* Navigation - Enhanced like XTRACT */
       .nav {
         position: fixed;
         top: 0;
         width: 100%;
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border);
+        background: rgba(10, 10, 10, 0.8);
+        backdrop-filter: blur(24px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         z-index: 1000;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .nav-container {
@@ -90,12 +100,19 @@
       }
 
       .logo {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
         font-size: 1.5rem;
-        font-weight: 800;
+        font-weight: 700;
         background: var(--gradient-1);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        letter-spacing: -0.02em;
       }
 
       .nav-links {
@@ -117,34 +134,76 @@
 
       .nav-cta {
         background: var(--gradient-1);
-        color: #000;
-        padding: 10px 20px;
-        border-radius: 25px;
+        color: #ffffff;
+        padding: 12px 24px;
+        border-radius: 12px;
         text-decoration: none;
-        font-weight: 600;
-        transition: transform 0.3s ease;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: none;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .nav-cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+      }
+
+      .nav-cta:hover::before {
+        opacity: 1;
       }
 
       .nav-cta:hover {
         transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);
+        color: #ffffff;
       }
 
-      /* Hero Section */
+      /* Hero Section - XTRACT Theme with Galaxy */
       .hero {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
         text-align: center;
-        background: radial-gradient(
-          ellipse at center,
-          #1a1a1a 0%,
-          #0a0a0a 100%
-        );
+        background:
+          radial-gradient(
+            ellipse 80% 50% at 50% 0%,
+            rgba(99, 102, 241, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse 100% 80% at 80% 100%,
+            rgba(139, 92, 246, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            ellipse 120% 60% at 20% 80%,
+            rgba(236, 72, 153, 0.08) 0%,
+            transparent 60%
+          ),
+          linear-gradient(
+            135deg,
+            var(--bg-primary) 0%,
+            var(--bg-secondary) 50%,
+            var(--bg-primary) 100%
+          );
         position: relative;
         overflow: hidden;
       }
 
+      /* Animated Galaxy Background */
       .hero::before {
         content: "";
         position: absolute;
@@ -152,8 +211,54 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d1ff' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        animation: float 20s ease-in-out infinite;
+        background-image:
+          radial-gradient(2px 2px at 20px 30px, #6366f1, transparent),
+          radial-gradient(2px 2px at 40px 70px, #8b5cf6, transparent),
+          radial-gradient(1px 1px at 90px 40px, #ec4899, transparent),
+          radial-gradient(1px 1px at 130px 80px, #06b6d4, transparent),
+          radial-gradient(2px 2px at 160px 30px, #6366f1, transparent);
+        background-repeat: repeat;
+        background-size: 200px 100px;
+        animation: galaxyMove 20s linear infinite;
+        opacity: 0.6;
+        z-index: 1;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+          radial-gradient(1px 1px at 50px 50px, #a855f7, transparent),
+          radial-gradient(2px 2px at 120px 120px, #06b6d4, transparent),
+          radial-gradient(1px 1px at 200px 80px, #ec4899, transparent),
+          radial-gradient(1px 1px at 300px 200px, #6366f1, transparent);
+        background-repeat: repeat;
+        background-size: 350px 250px;
+        animation: galaxyMove 30s linear infinite reverse;
+        opacity: 0.4;
+        z-index: 1;
+      }
+
+      @keyframes galaxyMove {
+        0% {
+          transform: translateX(0) translateY(0);
+        }
+        25% {
+          transform: translateX(-50px) translateY(-25px);
+        }
+        50% {
+          transform: translateX(-100px) translateY(0);
+        }
+        75% {
+          transform: translateX(-150px) translateY(25px);
+        }
+        100% {
+          transform: translateX(-200px) translateY(0);
+        }
       }
 
       @keyframes float {
@@ -174,21 +279,40 @@
       }
 
       .hero h1 {
-        font-size: clamp(3rem, 8vw, 5rem);
-        font-weight: 800;
-        margin-bottom: 24px;
-        background: var(--gradient-1);
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: clamp(3.5rem, 9vw, 6rem);
+        font-weight: 600;
+        margin-bottom: 32px;
+        background: var(--gradient-accent);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         animation: fadeInUp 1s ease-out;
+        line-height: 1.15;
+        letter-spacing: -0.025em;
       }
 
       .hero-subtitle {
-        font-size: 1.25rem;
-        color: var(--text-secondary);
-        margin-bottom: 32px;
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: 1.375rem;
+        color: rgba(228, 228, 231, 0.85);
+        margin-bottom: 48px;
         animation: fadeInUp 1s ease-out 0.2s both;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.65;
+        font-weight: 400;
+        letter-spacing: -0.01em;
       }
 
       .hero-cta {
@@ -199,40 +323,69 @@
 
       .btn-primary {
         background: var(--gradient-1);
-        color: #000;
-        padding: 16px 32px;
+        color: #ffffff;
+        padding: 18px 36px;
         border: none;
-        border-radius: 50px;
-        font-weight: 600;
-        font-size: 1rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         text-decoration: none;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      .btn-primary::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, #5b21b6 0%, #7c3aed 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+      }
+
+      .btn-primary:hover::before {
+        opacity: 1;
       }
 
       .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 30px rgba(0, 209, 255, 0.3);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(99, 102, 241, 0.4);
+        color: #ffffff;
       }
 
       .btn-secondary {
-        background: transparent;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
         color: var(--text-primary);
-        padding: 16px 32px;
-        border: 2px solid var(--border);
-        border-radius: 50px;
+        padding: 18px 36px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 12px;
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 1.1rem;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         text-decoration: none;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
 
       .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.1);
         border-color: var(--accent-primary);
         color: var(--accent-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 12px 30px rgba(255, 255, 255, 0.1);
       }
 
       /* Animations */
@@ -255,24 +408,40 @@
       }
 
       .section-title {
-        font-size: 2.5rem;
-        font-weight: 700;
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 600;
         text-align: center;
-        margin-bottom: 24px;
-        background: var(--gradient-1);
+        margin-bottom: 32px;
+        background: var(--gradient-accent);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        line-height: 1.25;
+        letter-spacing: -0.025em;
       }
 
       .section-subtitle {
-        font-size: 1.125rem;
-        color: var(--text-muted);
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: 1.25rem;
+        color: rgba(228, 228, 231, 0.75);
         text-align: center;
-        margin-bottom: 60px;
-        max-width: 600px;
+        margin-bottom: 80px;
+        max-width: 700px;
         margin-left: auto;
         margin-right: auto;
+        line-height: 1.65;
+        font-weight: 400;
+        letter-spacing: -0.01em;
       }
 
       /* Features Grid */
@@ -284,58 +453,103 @@
       }
 
       .feature-card {
-        background: var(--bg-card);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 32px;
-        transition: all 0.3s ease;
+        background: rgba(20, 20, 32, 0.8);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 24px;
+        padding: 48px 36px;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
+        group: hover;
       }
 
       .feature-card::before {
+        content: attr(data-icon);
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 8rem;
+        opacity: 0.12;
+        color: var(--accent-primary);
+        pointer-events: none;
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        transform: rotate(-15deg);
+        z-index: 1;
+      }
+
+      .feature-card::after {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        height: 4px;
-        background: var(--gradient-1);
+        bottom: 0;
+        background: radial-gradient(
+          600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+          rgba(99, 102, 241, 0.08),
+          transparent 40%
+        );
         opacity: 0;
         transition: opacity 0.3s ease;
+        pointer-events: none;
       }
 
       .feature-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px var(--shadow);
-        border-color: var(--accent-primary);
+        transform: translateY(-12px);
+        box-shadow:
+          0 32px 64px rgba(0, 0, 0, 0.3),
+          0 16px 32px rgba(99, 102, 241, 0.15);
+        border-color: rgba(99, 102, 241, 0.4);
+        background: rgba(20, 20, 32, 0.95);
+        border-top: 3px solid var(--accent-primary);
       }
 
       .feature-card:hover::before {
+        opacity: 0.15;
+        transform: rotate(-10deg) scale(1.1);
+        color: var(--accent-primary);
+      }
+
+      /* Hide old icon */
+      .feature-icon {
+        display: none;
+      }
+
+      .feature-card:hover::after {
         opacity: 1;
       }
 
-      .feature-icon {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 20px;
-        background: var(--gradient-1);
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+      .feature-card h3 {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
         font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: var(--text-primary);
+        transition: color 0.3s ease;
+        letter-spacing: -0.02em;
+        line-height: 1.3;
+        position: relative;
+        z-index: 2;
       }
 
-      .feature-card h3 {
-        font-size: 1.25rem;
-        margin-bottom: 12px;
-        color: var(--text-primary);
+      .feature-card:hover h3 {
+        color: var(--accent-primary);
       }
 
       .feature-card p {
-        color: var(--text-muted);
-        line-height: 1.6;
+        color: rgba(228, 228, 231, 0.85);
+        line-height: 1.7;
+        font-size: 1rem;
+        font-weight: 400;
+        position: relative;
+        z-index: 2;
+        letter-spacing: -0.005em;
       }
 
       /* Problem/Solution Section */
@@ -1537,14 +1751,11 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <h1>
-          Reimagining the Internet as a Structured, Intelligent Experience
-        </h1>
+        <h1>The Portal Web — Structured, Intelligent, Alive</h1>
         <p class="hero-subtitle">
-          Vortex combines AI, structured knowledge graphs, immersive content,
-          and social interaction into a unified, intelligent web ecosystem.
-          Explore knowledge through dynamic portals, interact with digital
-          personas, and join communities built around shared interests.
+          Vortex introduces a new interface for the internet—where content is
+          contextual, interaction is intelligent, and value flows seamlessly
+          between users and creators.
         </p>
         <div class="hero-cta">
           <button class="btn-primary" onclick="openDemoModal()">
@@ -1558,13 +1769,11 @@
     <!-- Problem & Solution Section -->
     <section class="section" id="about">
       <div class="problem-solution">
-        <h2>The Problem</h2>
+        <h2>What We Solve</h2>
         <p>
-          Today's digital experience is fragmented and chaotic. Users bounce
-          between platforms for social interaction, learning, and
-          commerce—resulting in shallow engagement, information overload, and
-          lost potential. The web has become a collection of disconnected silos
-          rather than an intelligent, interconnected knowledge space.
+          The internet is fragmented and shallow. Vortex replaces distraction
+          with structured, intelligent exploration—turning content into an
+          immersive experience.
         </p>
 
         <h2>The Vortex Solution</h2>
@@ -1583,68 +1792,62 @@
     <section class="section" id="product">
       <h2 class="section-title">Core Features</h2>
       <p class="section-subtitle">
-        Discover how Vortex transforms the way we interact with knowledge and
-        each other online
+        Discover how Vortex transforms the way we engage with knowledge, people,
+        and possibilities online.
       </p>
 
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">🌐</div>
+        <div class="feature-card" data-icon="🌐">
           <h3>Entity-Based Portals</h3>
           <p>
-            Every core element becomes a richly detailed portal combining
-            AI-generated content, user contributions, multimedia, and contextual
-            linking—creating dynamic knowledge spaces.
+            Transform any concept—book, place, person, or idea—into a dynamic
+            portal enriched with AI insights, user reviews, multimedia, and
+            real-time connections to related topics.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
+        <div class="feature-card" data-icon="🤖">
           <h3>AI Digital Clones</h3>
           <p>
-            Interact with AI simulations of historical figures, authors, and
-            creators. These digital personas can guide exploration, answer
-            questions, and lead immersive discussions.
+            Converse with intelligent avatars of historical figures, authors,
+            and thought leaders. These AI personas respond contextually,
+            enabling immersive learning and discovery.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🔗</div>
+        <div class="feature-card" data-icon="🔗">
           <h3>Knowledge Graph Navigation</h3>
           <p>
-            Our dynamic knowledge graph maps relationships between entities,
-            enabling intelligent recommendations and organic discovery paths
-            through interconnected topics.
+            Explore the web of interconnected knowledge. Our AI-driven graph
+            links entities meaningfully, surfacing intelligent paths and
+            personalized recommendations.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">👥</div>
+        <div class="feature-card" data-icon="👥">
           <h3>Social Discovery Layer</h3>
           <p>
-            Follow entities, join interest-based communities, contribute
-            content, and host real-time discussions embedded within the fabric
-            of knowledge exploration.
+            Every portal is a community. Follow topics, contribute content, join
+            live debates, and connect with others who share your curiosity—all
+            within the knowledge itself.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
-          <h3>P2P Marketplace</h3>
+        <div class="feature-card" data-icon="💰">
+          <h3>Creator-Powered P2P Marketplace</h3>
           <p>
-            Built-in commerce allows creators to monetize content, run
-            subscriptions, and crowdfund projects without leaving the platform.
-            Create, sell, and discover in one unified ecosystem.
+            Creators monetize directly. Offer subscriptions, sell digital goods,
+            or launch crowdfunded projects—seamlessly integrated into the
+            ecosystem.
           </p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-icon">🎯</div>
+        <div class="feature-card" data-icon="🎯">
           <h3>Immersive Experiences</h3>
           <p>
-            Each topic becomes a multimedia-rich gateway into living knowledge
-            spaces with interactive timelines, 3D visualizations, and contextual
-            storytelling.
+            Step beyond static content. Vortex portals feature interactive
+            timelines, AI narratives, spatial visualizations, and responsive
+            environments tailored to each topic.
           </p>
         </div>
       </div>
@@ -1654,35 +1857,55 @@
     <section class="section" id="vision">
       <h2 class="section-title">Our Vision</h2>
       <p class="section-subtitle">
-        Building the most intelligent, immersive, and interconnected platform
-        for knowledge and cultural exploration
+        To build the most intelligent, immersive, and interconnected platform
+        for exploring knowledge, culture, and creativity. Vortex turns static
+        information into living digital environments—empowering users to
+        discover, engage, and create in fundamentally new ways.
       </p>
 
       <div class="problem-solution">
         <h2>Why Now?</h2>
         <p>
-          AI is transforming user expectations and capabilities. The convergence
-          of large language models, knowledge graphs, and immersive technologies
-          creates an unprecedented opportunity to reimagine how we interact with
-          information and each other online.
+          AI is reshaping human-computer interaction. The convergence of large
+          language models, semantic knowledge graphs, and immersive web
+          technologies creates a rare inflection point. Vortex exists to capture
+          this moment—transforming passive consumption into intelligent,
+          structured exploration.
         </p>
 
         <h2>The Future</h2>
         <p>
-          In 5–10 years, Vortex will become the default interface for accessing
-          the world's knowledge—serving as a visual, conversational, and
-          economic layer on top of the internet. We're not replacing the web;
-          we're reorganizing it to unlock its full potential as a structured,
-          intelligent ecosystem.
+          Within the next decade, Vortex aims to become the default interface
+          for navigating the world's knowledge—a conversational, visual, and
+          economic layer on top of the internet. We're not replacing the
+          web—we're reorganizing it into a dynamic, interoperable, AI-native
+          ecosystem.
         </p>
 
         <h2>Business Model</h2>
-        <p>
-          Multiple revenue streams including premium subscriptions, digital
-          goods marketplace, affiliate commerce, event ticketing, creator
-          monetization tools, and enterprise solutions for knowledge management
-          and collaboration.
-        </p>
+        <p>Vortex generates revenue through multiple integrated streams:</p>
+        <ul
+          style="
+            color: rgba(228, 228, 231, 0.85);
+            line-height: 1.7;
+            margin-top: 16px;
+            padding-left: 20px;
+          "
+        >
+          <li>
+            Premium subscriptions for advanced features and private portal
+            creation
+          </li>
+          <li>
+            Creator monetization (tips, subscriptions, events, digital goods)
+          </li>
+          <li>Peer-to-peer marketplace for content and tools</li>
+          <li>Affiliate commerce via curated portals</li>
+          <li>
+            Enterprise solutions for knowledge infrastructure and collaborative
+            exploration
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -1714,8 +1937,8 @@
           <a href="#demo">Demo</a>
         </div>
         <div class="footer-copyright">
-          &copy; 2025 Vortex. All rights reserved. Reimagining the Internet as a
-          Structured, Intelligent Experience.
+          &copy; 2025 Vortex. All rights reserved. The Portal Web — Structured,
+          Intelligent, Alive.
         </div>
       </div>
     </footer>
@@ -1992,7 +2215,7 @@
               <div class="value-card">
                 <div class="value-icon">📚</div>
                 <h3>Exclusive Resources</h3>
-                <p>Access our founder's vision deck</p>
+                <p>Acin deck</p>
                 <button class="value-btn">Coming to your email</button>
               </div>
               <div class="value-card">
@@ -2101,6 +2324,24 @@
           el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
           observer.observe(el);
         });
+
+      // Enhanced feature card interactions like XTRACT
+      document.querySelectorAll(".feature-card").forEach((card) => {
+        card.addEventListener("mousemove", (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+
+          card.style.setProperty("--mouse-x", `${x}px`);
+          card.style.setProperty("--mouse-y", `${y}px`);
+        });
+
+        // Add stagger animation
+        const delay =
+          Array.from(document.querySelectorAll(".feature-card")).indexOf(card) *
+          100;
+        card.style.animationDelay = `${delay}ms`;
+      });
 
       // Modal Functions
       function openDemoModal() {
