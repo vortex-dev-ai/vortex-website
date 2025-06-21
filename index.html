@@ -498,8 +498,17 @@
           display: none;
         }
 
+        .hero {
+          padding-top: 70px; /* Account for fixed navigation height */
+        }
+
+        .hero-content {
+          padding: 20px 24px 0;
+        }
+
         .hero h1 {
           font-size: 2.5rem;
+          margin-top: 20px; /* Additional margin to ensure no overlap */
         }
 
         .hero-cta {
@@ -589,6 +598,32 @@
         animation: slideInScale 0.5s ease-out;
         box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
         position: relative;
+      }
+
+      /* Scroll indicator for mobile */
+      .demo-experience::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(
+          to top,
+          var(--bg-card) 0%,
+          rgba(28, 28, 30, 0.9) 50%,
+          transparent 100%
+        );
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+        border-radius: 0 0 24px 24px;
+      }
+
+      /* Show scroll indicator when content is scrollable */
+      .demo-experience.has-scroll::after {
+        opacity: 1;
       }
 
       .demo-experience::before {
@@ -1018,6 +1053,100 @@
         .form-step {
           padding: 24px 20px;
           min-height: 300px;
+          position: relative;
+        }
+
+        /* Mobile scroll hint */
+        .scroll-hint {
+          position: fixed;
+          bottom: 120px;
+          right: 30px;
+          background: var(--accent-primary);
+          color: #000;
+          padding: 12px 16px;
+          border-radius: 25px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          z-index: 10001;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: all 0.3s ease;
+          pointer-events: none;
+          box-shadow: 0 8px 30px rgba(0, 209, 255, 0.4);
+        }
+
+        .scroll-hint.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        .scroll-hint::before {
+          content: "⬇️";
+          margin-right: 8px;
+          animation: bounce 2s infinite;
+        }
+
+        /* Prominent scroll arrow for active form filling */
+        .scroll-arrow {
+          position: fixed;
+          bottom: 80px;
+          left: 50%;
+          transform: translateX(-50%);
+          background: var(--accent-primary);
+          color: #000;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          z-index: 10002;
+          opacity: 0;
+          transform: translateX(-50%) translateY(20px);
+          transition: all 0.4s ease;
+          pointer-events: none;
+          box-shadow: 0 8px 30px rgba(0, 209, 255, 0.6);
+          border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .scroll-arrow.show {
+          opacity: 1;
+          transform: translateX(-50%) translateY(0);
+        }
+
+        .scroll-arrow::before {
+          content: "↓";
+          animation: pulseArrow 1.5s ease-in-out infinite;
+          font-weight: 900;
+        }
+
+        @keyframes pulseArrow {
+          0%,
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
+          50% {
+            transform: scale(1.2);
+            opacity: 0.8;
+          }
+        }
+
+        @keyframes bounce {
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-8px);
+          }
+          60% {
+            transform: translateY(-4px);
+          }
         }
 
         .form-row {
@@ -1594,6 +1723,9 @@
     <!-- Revolutionary Demo Experience -->
     <div id="demoModal" class="modal">
       <div class="modal-content demo-experience">
+        <!-- Prominent Scroll Arrow -->
+        <div id="scrollArrow" class="scroll-arrow"></div>
+
         <!-- Progress Bar -->
         <div class="progress-bar">
           <div class="progress-fill" id="progressFill"></div>
@@ -2058,6 +2190,15 @@
             step.querySelector(".step-number").textContent = index + 1;
           }
         });
+
+        // Recheck scroll indicators after step change
+        setTimeout(() => {
+          const demoExperience = document.querySelector(".demo-experience");
+          if (demoExperience) {
+            const event = new Event("scroll");
+            demoExperience.dispatchEvent(event);
+          }
+        }, 100);
       }
 
       function validateCurrentStep() {
@@ -2264,10 +2405,111 @@ ${formData.fullName}`;
         updateStep();
         initializeDemoExperience();
 
+        // Set up scroll indicators for mobile
+        setupScrollIndicators();
+
         // Focus on first input with delay for better UX
         setTimeout(() => {
           document.getElementById("fullName").focus();
         }, 500);
+      }
+
+      // Set up scroll indicators
+      function setupScrollIndicators() {
+        const demoExperience = document.querySelector(".demo-experience");
+        const scrollHint = document.getElementById("scrollHint");
+        const scrollArrow = document.getElementById("scrollArrow");
+
+        // Check if on mobile
+        const isMobile =
+          /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          ) || window.innerWidth <= 768;
+
+        if (!isMobile) return;
+
+        function checkScrollability() {
+          const isScrollable =
+            demoExperience.scrollHeight > demoExperience.clientHeight;
+          const isScrolledToBottom =
+            demoExperience.scrollTop + demoExperience.clientHeight >=
+            demoExperience.scrollHeight - 10;
+          const scrollProgress =
+            demoExperience.scrollTop /
+            (demoExperience.scrollHeight - demoExperience.clientHeight);
+
+          // Add scroll indicator class
+          if (isScrollable) {
+            demoExperience.classList.add("has-scroll");
+          } else {
+            demoExperience.classList.remove("has-scroll");
+          }
+
+          // Show/hide scroll hint (subtle one)
+          if (isScrollable && !isScrolledToBottom && scrollProgress < 0.1) {
+            scrollHint.classList.add("show");
+          } else {
+            scrollHint.classList.remove("show");
+          }
+
+          // Show/hide prominent scroll arrow (the main one user asked for)
+          if (isScrollable && !isScrolledToBottom && scrollProgress < 0.3) {
+            scrollArrow.classList.add("show");
+          } else {
+            scrollArrow.classList.remove("show");
+          }
+        }
+
+        // Check scrollability on step changes and scroll events
+        demoExperience.addEventListener("scroll", checkScrollability);
+        window.addEventListener("resize", checkScrollability);
+
+        // Initial check
+        setTimeout(checkScrollability, 100);
+
+        // Hide hint after user scrolls once
+        let hasScrolled = false;
+        demoExperience.addEventListener("scroll", () => {
+          if (!hasScrolled && demoExperience.scrollTop > 20) {
+            hasScrolled = true;
+            setTimeout(() => {
+              scrollHint.classList.remove("show");
+            }, 2000);
+          }
+        });
+
+        // Show prominent arrow when user is actively filling form
+        let formFocusTimeout;
+        document.querySelectorAll("input, textarea").forEach((input) => {
+          input.addEventListener("focus", () => {
+            // Clear any existing timeout
+            clearTimeout(formFocusTimeout);
+
+            // Show the arrow prominently when user is filling form
+            if (
+              /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+                navigator.userAgent
+              )
+            ) {
+              formFocusTimeout = setTimeout(() => {
+                checkScrollability();
+              }, 500);
+            }
+          });
+
+          input.addEventListener("blur", () => {
+            // Hide arrow after a delay when user stops filling
+            clearTimeout(formFocusTimeout);
+            formFocusTimeout = setTimeout(() => {
+              const scrollProgress =
+                demoExperience.scrollTop /
+                (demoExperience.scrollHeight - demoExperience.clientHeight);
+              if (scrollProgress > 0.1) {
+                scrollArrow.classList.remove("show");
+              }
+            }, 3000);
+          });
+        });
       }
 
       // Show success modal with form data
