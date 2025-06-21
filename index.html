@@ -388,6 +388,112 @@
         box-shadow: 0 12px 30px rgba(255, 255, 255, 0.1);
       }
 
+      .btn-vortal {
+        background: linear-gradient(
+          135deg,
+          #8b5cf6 0%,
+          #a855f7 50%,
+          #c084fc 100%
+        );
+        color: #ffffff;
+        padding: 18px 32px;
+        border: none;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+      }
+
+      .btn-vortal::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #7c3aed 0%,
+          #8b5cf6 50%,
+          #a855f7 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+      }
+
+      .btn-vortal:hover::before {
+        opacity: 1;
+      }
+
+      .btn-vortal:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(139, 92, 246, 0.4);
+        color: #ffffff;
+      }
+
+      .btn-vortal-large {
+        background: linear-gradient(
+          135deg,
+          #8b5cf6 0%,
+          #a855f7 50%,
+          #c084fc 100%
+        );
+        color: #ffffff;
+        padding: 24px 48px;
+        border: none;
+        border-radius: 16px;
+        font-weight: 700;
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3);
+      }
+
+      .btn-vortal-large::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          #7c3aed 0%,
+          #8b5cf6 50%,
+          #a855f7 100%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: -1;
+      }
+
+      .btn-vortal-large:hover::before {
+        opacity: 1;
+      }
+
+      .btn-vortal-large:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 48px rgba(139, 92, 246, 0.4);
+        color: #ffffff;
+      }
+
       /* Animations */
       @keyframes fadeInUp {
         from {
@@ -905,6 +1011,734 @@
         .footer-links {
           flex-direction: column;
           gap: 16px;
+        }
+      }
+
+      /* Origin Section */
+      .origin-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .origin-title {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 48px;
+        background: linear-gradient(
+          135deg,
+          #6366f1 0%,
+          #a855f7 50%,
+          #ec4899 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .origin-content {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+      }
+
+      .origin-intro {
+        text-align: center;
+        margin-bottom: 24px;
+      }
+
+      .origin-lead {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: clamp(1.25rem, 3vw, 1.5rem);
+        font-weight: 500;
+        color: rgba(228, 228, 231, 0.95);
+        line-height: 1.6;
+        letter-spacing: -0.01em;
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(20, 20, 32, 0.4);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      .origin-story {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .origin-block {
+        background: rgba(20, 20, 32, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 40px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .origin-block::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .origin-block:hover::before {
+        opacity: 1;
+      }
+
+      .origin-block:hover {
+        transform: translateY(-4px);
+        border-color: rgba(99, 102, 241, 0.3);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+      }
+
+      .origin-block.crisis {
+        border-color: rgba(236, 72, 153, 0.2);
+      }
+
+      .origin-block.crisis::before {
+        background: linear-gradient(90deg, #ec4899, #f43f5e);
+      }
+
+      .origin-block.solution {
+        border-color: rgba(6, 182, 212, 0.2);
+      }
+
+      .origin-block.solution::before {
+        background: linear-gradient(90deg, #06b6d4, #0ea5e9);
+      }
+
+      .origin-block h3 {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 20px;
+        letter-spacing: -0.01em;
+        line-height: 1.3;
+      }
+
+      .origin-block p {
+        color: rgba(228, 228, 231, 0.85);
+        line-height: 1.7;
+        font-size: 1.1rem;
+        margin: 0;
+        letter-spacing: -0.005em;
+      }
+
+      .origin-block strong {
+        color: var(--accent-primary);
+        font-weight: 600;
+      }
+
+      .origin-block em {
+        color: #ec4899;
+        font-style: italic;
+        font-weight: 500;
+      }
+
+      .origin-vision {
+        background: linear-gradient(
+          135deg,
+          rgba(99, 102, 241, 0.1) 0%,
+          rgba(139, 92, 246, 0.1) 100%
+        );
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        position: relative;
+        padding: 40px !important;
+      }
+
+      .origin-vision::before {
+        background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+      }
+
+      .civilization-intro {
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+        color: rgba(228, 228, 231, 0.9);
+        text-align: center;
+      }
+
+      .civilization-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin-top: 32px;
+      }
+
+      .civilization-card {
+        background: rgba(20, 20, 32, 0.4);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 32px;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+
+      .civilization-card::before {
+        content: attr(data-icon);
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 8rem;
+        opacity: 0.12;
+        transition: all 0.4s ease;
+        transform: rotate(-15deg);
+        z-index: 1;
+      }
+
+      .civilization-card:hover::before {
+        opacity: 0.25;
+        transform: rotate(0deg) scale(1.1);
+      }
+
+      .civilization-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(99, 102, 241, 0.3);
+        background: rgba(20, 20, 32, 0.6);
+        box-shadow: 0 16px 64px rgba(0, 0, 0, 0.3);
+      }
+
+      .civilization-card h4 {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 16px;
+        letter-spacing: -0.01em;
+        position: relative;
+        z-index: 2;
+      }
+
+      .civilization-card p {
+        color: rgba(228, 228, 231, 0.8);
+        font-size: 1rem;
+        line-height: 1.6;
+        margin: 0;
+        letter-spacing: -0.005em;
+        position: relative;
+        z-index: 2;
+      }
+
+      .origin-conclusion {
+        background: linear-gradient(
+          135deg,
+          rgba(20, 20, 32, 0.8) 0%,
+          rgba(30, 30, 50, 0.8) 100%
+        );
+        border: 2px solid rgba(99, 102, 241, 0.3);
+        position: relative;
+        overflow: hidden;
+        padding: 40px !important;
+      }
+
+      .origin-conclusion::before {
+        background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899, #f43f5e);
+        height: 3px;
+      }
+
+      .origin-conclusion::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(99, 102, 241, 0.1) 0%,
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+
+      .conclusion-text {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: rgba(228, 228, 231, 0.95);
+        text-align: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .conclusion-text strong {
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-weight: 700;
+      }
+
+      /* Vortals Section */
+      .vortals-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .vortals-header {
+        margin-bottom: 48px;
+      }
+
+      .scarcity-badge {
+        display: inline-block;
+        background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+        color: #ffffff;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 16px rgba(139, 92, 246, 0.3);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .vortals-title {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
+        font-weight: 700;
+        margin-bottom: 24px;
+        background: linear-gradient(
+          135deg,
+          #8b5cf6 0%,
+          #a855f7 50%,
+          #c084fc 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      .vortals-subtitle {
+        font-size: 1.25rem;
+        color: rgba(228, 228, 231, 0.9);
+        line-height: 1.6;
+        margin-bottom: 32px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .exclusivity-indicators {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        margin-top: 32px;
+        flex-wrap: wrap;
+      }
+
+      .exclusivity-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(139, 92, 246, 0.1);
+        border: 1px solid rgba(139, 92, 246, 0.2);
+        border-radius: 12px;
+        padding: 12px 20px;
+        transition: all 0.3s ease;
+      }
+
+      .exclusivity-item:hover {
+        background: rgba(139, 92, 246, 0.15);
+        border-color: rgba(139, 92, 246, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .exclusivity-icon {
+        font-size: 1.2rem;
+      }
+
+      .exclusivity-text {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: rgba(228, 228, 231, 0.9);
+        letter-spacing: -0.005em;
+      }
+
+      .urgency-counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        margin-bottom: 24px;
+        background: rgba(20, 20, 32, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        border-radius: 16px;
+        padding: 24px;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .counter-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .counter-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #ef4444;
+        line-height: 1;
+        font-family: "Manrope", monospace;
+      }
+
+      .counter-label {
+        font-size: 0.875rem;
+        color: rgba(228, 228, 231, 0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-top: 4px;
+      }
+
+      .counter-divider {
+        color: rgba(228, 228, 231, 0.3);
+        font-size: 1.5rem;
+      }
+
+      .vortals-benefits {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .benefit-card {
+        background: rgba(20, 20, 32, 0.4);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        padding: 32px 24px;
+        transition: all 0.3s ease;
+        text-align: center;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(236, 72, 153, 0.3);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      .benefit-icon {
+        font-size: 3rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+
+      .benefit-card h3 {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+      }
+
+      .benefit-card p {
+        color: rgba(228, 228, 231, 0.8);
+        line-height: 1.5;
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
+      .vortals-cta {
+        margin-top: 48px;
+      }
+
+      .urgency-text {
+        margin-top: 20px;
+      }
+
+      .vortals-warning {
+        color: #f59e0b;
+        font-weight: 600;
+        font-size: 1.05rem;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .vortals-note {
+        color: rgba(228, 228, 231, 0.7);
+        font-size: 0.95rem;
+        margin: 0;
+      }
+
+      /* Vortals Mobile Responsive */
+      @media (max-width: 768px) {
+        .exclusivity-indicators {
+          gap: 16px;
+          margin-top: 24px;
+        }
+
+        .exclusivity-item {
+          padding: 10px 16px;
+        }
+
+        .exclusivity-text {
+          font-size: 0.85rem;
+        }
+
+        .vortals-benefits {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .benefit-card {
+          padding: 24px 20px;
+        }
+
+        .btn-vortal-large {
+          padding: 20px 32px;
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Origin Mobile Responsive */
+      @media (max-width: 768px) {
+        .origin-lead {
+          padding: 32px 24px;
+          font-size: 1.125rem;
+        }
+
+        .origin-block {
+          padding: 32px 24px;
+        }
+
+        .origin-block h3 {
+          font-size: 1.25rem;
+        }
+
+        .origin-block p {
+          font-size: 1rem;
+        }
+
+        .civilization-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .civilization-card {
+          padding: 28px 24px;
+        }
+
+        .civilization-card::before {
+          font-size: 6rem;
+          top: 16px;
+          right: 16px;
+        }
+
+        .civilization-card h4 {
+          font-size: 1.125rem;
+        }
+
+        .civilization-card p {
+          font-size: 0.95rem;
+        }
+
+        .conclusion-text {
+          font-size: 1.1rem;
+        }
+      }
+
+      /* FAQ Section */
+      .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: rgba(20, 20, 32, 0.6);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 16px;
+        margin-bottom: 16px;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .faq-item:hover {
+        border-color: rgba(99, 102, 241, 0.3);
+        background: rgba(20, 20, 32, 0.8);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      }
+
+      .faq-question {
+        padding: 24px 28px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .faq-question:hover {
+        background: rgba(99, 102, 241, 0.05);
+      }
+
+      .faq-question h3 {
+        font-family:
+          "Manrope",
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin: 0;
+        line-height: 1.4;
+        letter-spacing: -0.01em;
+        flex: 1;
+        padding-right: 20px;
+      }
+
+      .faq-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--accent-primary);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-icon {
+        background: var(--accent-primary);
+        color: #ffffff;
+        transform: rotate(45deg);
+        border-color: var(--accent-primary);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        opacity: 0;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+        opacity: 1;
+        padding: 0 28px 28px 28px;
+      }
+
+      .faq-answer p {
+        color: rgba(228, 228, 231, 0.85);
+        line-height: 1.7;
+        font-size: 1rem;
+        margin: 0;
+        letter-spacing: -0.005em;
+      }
+
+      .faq-answer ul {
+        color: rgba(228, 228, 231, 0.85);
+        line-height: 1.7;
+        margin: 16px 0 0 0;
+        padding-left: 20px;
+      }
+
+      .faq-answer li {
+        margin-bottom: 8px;
+        font-size: 1rem;
+        letter-spacing: -0.005em;
+      }
+
+      /* FAQ Mobile Responsive */
+      @media (max-width: 768px) {
+        .faq-question {
+          padding: 20px 20px;
+        }
+
+        .faq-question h3 {
+          font-size: 1.125rem;
+          padding-right: 16px;
+        }
+
+        .faq-icon {
+          width: 28px;
+          height: 28px;
+          font-size: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+          padding: 0 20px 24px 20px;
+        }
+
+        .faq-answer p,
+        .faq-answer li {
+          font-size: 0.95rem;
         }
       }
 
@@ -1900,6 +2734,9 @@
           <li><a href="#about">About</a></li>
           <li><a href="#vision">Vision</a></li>
           <li><a href="#product">Product</a></li>
+          <li><a href="#origin">Origin</a></li>
+          <li><a href="#vortals">Vortals</a></li>
+          <li><a href="#faq">FAQ</a></li>
           <li><a href="#demo">Demo</a></li>
         </ul>
         <button class="mobile-nav-toggle" onclick="toggleMobileNav()">
@@ -1915,14 +2752,27 @@
             <a href="#about" data-icon="📖" onclick="closeMobileNav()">About</a>
           </li>
           <li>
+            <a href="#vision" data-icon="🚀" onclick="closeMobileNav()"
+              >Vision</a
+            >
+          </li>
+          <li>
             <a href="#product" data-icon="⚡" onclick="closeMobileNav()"
               >Features</a
             >
           </li>
           <li>
-            <a href="#vision" data-icon="🚀" onclick="closeMobileNav()"
-              >Vision</a
+            <a href="#origin" data-icon="🏛️" onclick="closeMobileNav()"
+              >Origin</a
             >
+          </li>
+          <li>
+            <a href="#vortals" data-icon="🌀" onclick="closeMobileNav()"
+              >Vortals</a
+            >
+          </li>
+          <li>
+            <a href="#faq" data-icon="❓" onclick="closeMobileNav()">FAQ</a>
           </li>
           <li>
             <a href="#demo" data-icon="💬" onclick="closeMobileNav()">Demo</a>
@@ -1945,13 +2795,28 @@
       ></div>
       <div
         class="progress-dot"
+        data-section="Vision"
+        onclick="scrollToSection('#vision')"
+      ></div>
+      <div
+        class="progress-dot"
         data-section="Features"
         onclick="scrollToSection('#product')"
       ></div>
       <div
         class="progress-dot"
-        data-section="Vision"
-        onclick="scrollToSection('#vision')"
+        data-section="Origin"
+        onclick="scrollToSection('#origin')"
+      ></div>
+      <div
+        class="progress-dot"
+        data-section="Vortals"
+        onclick="scrollToSection('#vortals')"
+      ></div>
+      <div
+        class="progress-dot"
+        data-section="FAQ"
+        onclick="scrollToSection('#faq')"
       ></div>
       <div
         class="progress-dot"
@@ -1973,6 +2838,13 @@
           <button class="btn-primary" onclick="openDemoModal()">
             Schedule Demo
           </button>
+          <a
+            href="https://forms.gle/iUh8JKKnwrKxz6VU8"
+            target="_blank"
+            class="btn-vortal"
+          >
+            🌀 Become a Founding Vortal
+          </a>
           <a href="#vision" class="btn-secondary">Learn More</a>
         </div>
       </div>
@@ -1997,6 +2869,62 @@
           AI, where every element is interconnected through a dynamic knowledge
           graph.
         </p>
+      </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="section" id="vision">
+      <h2 class="section-title">Our Vision</h2>
+      <p class="section-subtitle">
+        To build the most intelligent, immersive, and interconnected platform
+        for exploring knowledge, culture, and creativity. Vortex turns static
+        information into living digital environments—empowering users to
+        discover, engage, and create in fundamentally new ways.
+      </p>
+
+      <div class="problem-solution">
+        <h2>Why Now?</h2>
+        <p>
+          AI is reshaping human-computer interaction. The convergence of large
+          language models, semantic knowledge graphs, and immersive web
+          technologies creates a rare inflection point. Vortex exists to capture
+          this moment—transforming passive consumption into intelligent,
+          structured exploration.
+        </p>
+
+        <h2>The Future</h2>
+        <p>
+          Within the next decade, Vortex aims to become the default interface
+          for navigating the world's knowledge—a conversational, visual, and
+          economic layer on top of the internet. We're not replacing the
+          web—we're reorganizing it into a dynamic, interoperable, AI-native
+          ecosystem.
+        </p>
+
+        <h2>Business Model</h2>
+        <p>Vortex generates revenue through multiple integrated streams:</p>
+        <ul
+          style="
+            color: rgba(228, 228, 231, 0.85);
+            line-height: 1.7;
+            margin-top: 16px;
+            padding-left: 20px;
+          "
+        >
+          <li>
+            Premium subscriptions for advanced features and private portal
+            creation
+          </li>
+          <li>
+            Creator monetization (tips, subscriptions, events, digital goods)
+          </li>
+          <li>Peer-to-peer marketplace for content and tools</li>
+          <li>Affiliate commerce via curated portals</li>
+          <li>
+            Enterprise solutions for knowledge infrastructure and collaborative
+            exploration
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -2065,59 +2993,339 @@
       </div>
     </section>
 
-    <!-- Vision Section -->
-    <section class="section" id="vision">
-      <h2 class="section-title">Our Vision</h2>
+    <!-- Origin Section -->
+    <section class="section" id="origin">
+      <div class="origin-container">
+        <h2 class="origin-title">The Origin of Vortex</h2>
+        <div class="origin-content">
+          <div class="origin-intro">
+            <p class="origin-lead">
+              Vortex wasn't born out of a desire to build another app. It
+              emerged from a deeper observation: that the internet, as it stands
+              today, is fundamentally misaligned with how humans are wired to
+              learn, connect, and trade.
+            </p>
+          </div>
+
+          <div class="origin-story">
+            <div class="origin-block">
+              <h3>Looking Backward to Move Forward</h3>
+              <p>
+                We looked backward—into the architecture of ancient
+                civilizations. From Athens to Alexandria, Rome to the
+                Renaissance, humanity has always advanced through
+                <strong>structured knowledge</strong>,
+                <strong>tight-knit communities</strong>, and
+                <strong>peer-to-peer exchange</strong>. People lived close to
+                one another. Ideas moved organically—across forums, streets, and
+                generations. The best of what we know was built collaboratively,
+                shared locally, and preserved intentionally.
+              </p>
+            </div>
+
+            <div class="origin-block crisis">
+              <h3>Today, That Structure Is Gone</h3>
+              <p>
+                Social platforms are fragmented and superficial. Information is
+                scattered, shallow, and gamified. Monetization is limited to
+                influencers and algorithms. The internet connects billions—but
+                few of us feel connected.
+                <em>The web has flattened our cities into feeds.</em>
+              </p>
+            </div>
+
+            <div class="origin-block solution">
+              <h3>Vortex Is Our Response</h3>
+              <p>
+                It's inspired by the way knowledge should move: deeply,
+                relationally, and with context. We're rebuilding the digital
+                world as a structured, intelligent ecosystem—where people don't
+                just scroll, but <strong>explore</strong>. Where ideas live in
+                immersive environments. Where communities form around meaning.
+                And where creators don't rely on gatekeepers to earn a living.
+              </p>
+            </div>
+
+            <div class="origin-vision">
+              <h3>The Digital Civilization</h3>
+              <p class="civilization-intro">
+                Just as cities once gave rise to libraries, marketplaces, and
+                movements, Vortex is building the digital equivalent:
+              </p>
+
+              <div class="civilization-grid">
+                <div class="civilization-card" data-icon="🏛️">
+                  <h4>Interactive Portals</h4>
+                  <p>
+                    A place where entities (books, people, ideas) live as rich,
+                    interactive portals—each one a gateway to deep exploration
+                  </p>
+                </div>
+                <div class="civilization-card" data-icon="🕸️">
+                  <h4>Knowledge Graph</h4>
+                  <p>
+                    A semantic web that connects portals with context, not
+                    chaos— revealing meaningful relationships and intelligent
+                    pathways
+                  </p>
+                </div>
+                <div class="civilization-card" data-icon="💬">
+                  <h4>Social Layer</h4>
+                  <p>
+                    Communities designed for conversation, not performance—where
+                    depth of engagement matters more than viral metrics
+                  </p>
+                </div>
+                <div class="civilization-card" data-icon="⚡">
+                  <h4>P2P Marketplace</h4>
+                  <p>
+                    An economy where every person can monetize what they know,
+                    make, or teach—without gatekeepers or algorithmic bias
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="origin-conclusion">
+              <h3>This Is Not Nostalgia. It's Evolution.</h3>
+              <p class="conclusion-text">
+                We're building the <strong>Portal Web</strong>—a new digital
+                civilization rooted in depth, connection, and value. The future
+                of human knowledge and commerce, structured as it should be.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Early Vortals Section -->
+    <section class="section" id="vortals">
+      <div class="vortals-container">
+        <div class="vortals-header">
+          <div class="scarcity-badge">⚡ LIMITED EARLY ACCESS</div>
+          <h2 class="vortals-title">Join the Founding Vortals</h2>
+          <p class="vortals-subtitle">
+            Be among the first to experience the Portal Web. Founding Vortals
+            get exclusive lifetime privileges, direct access to founders, and
+            permanent early-adopter benefits. Early access is limited and by
+            invitation only.
+          </p>
+          <div class="exclusivity-indicators">
+            <div class="exclusivity-item">
+              <span class="exclusivity-icon">👑</span>
+              <span class="exclusivity-text">Founding Member Status</span>
+            </div>
+            <div class="exclusivity-item">
+              <span class="exclusivity-icon">🔒</span>
+              <span class="exclusivity-text">Invitation Only</span>
+            </div>
+            <div class="exclusivity-item">
+              <span class="exclusivity-icon">⏰</span>
+              <span class="exclusivity-text">Limited Time</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="vortals-benefits">
+          <div class="benefit-card">
+            <div class="benefit-icon">⚡</div>
+            <h3>Priority Access</h3>
+            <p>
+              First access to new portals, features, and AI capabilities before
+              anyone else
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">👑</div>
+            <h3>Exclusive Status</h3>
+            <p>
+              Special Vortal badge, premium profile features, and recognition in
+              the community
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">🎯</div>
+            <h3>Shape the Future</h3>
+            <p>
+              Direct input on product development, early beta testing, and
+              feature requests
+            </p>
+          </div>
+          <div class="benefit-card">
+            <div class="benefit-icon">💎</div>
+            <h3>Lifetime Benefits</h3>
+            <p>
+              Permanent premium features, reduced fees, and exclusive
+              Vortal-only content
+            </p>
+          </div>
+        </div>
+
+        <div class="vortals-cta">
+          <a
+            href="https://forms.gle/iUh8JKKnwrKxz6VU8"
+            target="_blank"
+            class="btn-vortal-large"
+          >
+            🌀 Apply for Founding Status
+          </a>
+          <div class="urgency-text">
+            <p class="vortals-warning">
+              ⚠️ Early access closes when beta launches
+            </p>
+            <p class="vortals-note">
+              Founding Vortals receive permanent benefits that will never be
+              available again
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section" id="faq">
+      <h2 class="section-title">Frequently Asked Questions</h2>
       <p class="section-subtitle">
-        To build the most intelligent, immersive, and interconnected platform
-        for exploring knowledge, culture, and creativity. Vortex turns static
-        information into living digital environments—empowering users to
-        discover, engage, and create in fundamentally new ways.
+        Everything you need to know about Vortex and the Portal Web
       </p>
 
-      <div class="problem-solution">
-        <h2>Why Now?</h2>
-        <p>
-          AI is reshaping human-computer interaction. The convergence of large
-          language models, semantic knowledge graphs, and immersive web
-          technologies creates a rare inflection point. Vortex exists to capture
-          this moment—transforming passive consumption into intelligent,
-          structured exploration.
-        </p>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What is Vortex?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Vortex is a next-generation platform that transforms the internet
+              into a structured, intelligent interface. It organizes knowledge
+              into dynamic portals—AI-powered, content-rich environments for
+              exploring entities like books, people, places, and ideas.
+            </p>
+          </div>
+        </div>
 
-        <h2>The Future</h2>
-        <p>
-          Within the next decade, Vortex aims to become the default interface
-          for navigating the world's knowledge—a conversational, visual, and
-          economic layer on top of the internet. We're not replacing the
-          web—we're reorganizing it into a dynamic, interoperable, AI-native
-          ecosystem.
-        </p>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What's the 'Portal Web'?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              The Portal Web is a new internet layer. Instead of static pages,
+              users explore structured portals interconnected through a semantic
+              knowledge graph—powered by AI, multimedia, and user engagement.
+            </p>
+          </div>
+        </div>
 
-        <h2>Business Model</h2>
-        <p>Vortex generates revenue through multiple integrated streams:</p>
-        <ul
-          style="
-            color: rgba(228, 228, 231, 0.85);
-            line-height: 1.7;
-            margin-top: 16px;
-            padding-left: 20px;
-          "
-        >
-          <li>
-            Premium subscriptions for advanced features and private portal
-            creation
-          </li>
-          <li>
-            Creator monetization (tips, subscriptions, events, digital goods)
-          </li>
-          <li>Peer-to-peer marketplace for content and tools</li>
-          <li>Affiliate commerce via curated portals</li>
-          <li>
-            Enterprise solutions for knowledge infrastructure and collaborative
-            exploration
-          </li>
-        </ul>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What's unique about Vortex?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We're creating a digital clone of the universe. Every concept,
+              artifact, or person becomes an interactive node in a living
+              graph—navigable, intelligent, and monetizable. It's not just
+              discovery; it's immersion, context, and connection.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>How does Vortex leverage AI?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Vortex integrates LLMs to generate contextual summaries, simulate
+              digital clones of historical or cultural figures, and power
+              real-time interactions. AI is woven into the architecture—not a
+              layer on top.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>How is this different from Wikipedia, Substack, or ChatGPT?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Vortex is structured, immersive, and monetizable. It's not just
+              about information—it's about exploration, interaction, and
+              economic value inside a unified environment. This is not a feed or
+              a chatbot; it's a living system.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>Who is this built for?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Early on: creators, educators, and knowledge communities. At
+              scale: anyone seeking a deeper, smarter interface to explore,
+              share, and monetize ideas and cultural artifacts.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>How do you make money?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>Vortex operates with multiple integrated revenue streams:</p>
+            <ul>
+              <li>Premium access and creator subscriptions</li>
+              <li>Marketplace for digital goods and educational content</li>
+              <li>Affiliate and referral-based commerce</li>
+              <li>
+                Enterprise licensing for knowledge infrastructure and contextual
+                AI tools
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>Why now?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              The convergence of LLMs, knowledge graphs, and immersive UX marks
+              a paradigm shift. User expectations are changing—Vortex is the
+              platform that captures this next wave of digital engagement.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFAQ(this)">
+            <h3>What's the long-term vision?</h3>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-answer">
+            <p>
+              To become the default interface for structured knowledge and
+              cultural exploration. We're not replacing the web—we're
+              reorganizing it into something smarter, more human, and more
+              valuable.
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -3255,6 +4463,22 @@ ${formData.fullName}`;
               "info"
             );
           }, 3000);
+        }
+      }
+
+      // FAQ Toggle Functionality
+      function toggleFAQ(element) {
+        const faqItem = element.parentElement;
+        const isActive = faqItem.classList.contains("active");
+
+        // Close all other FAQ items
+        document.querySelectorAll(".faq-item").forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        // Toggle current item
+        if (!isActive) {
+          faqItem.classList.add("active");
         }
       }
 
