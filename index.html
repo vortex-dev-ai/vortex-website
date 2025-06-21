@@ -968,13 +968,13 @@
         background: linear-gradient(
           to top,
           var(--bg-card) 0%,
-          rgba(28, 28, 30, 0.9) 50%,
+          rgba(20, 20, 32, 0.9) 50%,
           transparent 100%
         );
         pointer-events: none;
         opacity: 0;
         transition: opacity 0.3s ease;
-        z-index: 10;
+        z-index: 3;
         border-radius: 0 0 24px 24px;
       }
 
@@ -1078,6 +1078,8 @@
         padding: 40px;
         animation: slideInStep 0.4s ease-out;
         min-height: 400px;
+        position: relative;
+        z-index: 5;
       }
 
       .form-step.active {
@@ -1109,10 +1111,14 @@
         grid-template-columns: 1fr 1fr;
         gap: 24px;
         margin-bottom: 24px;
+        position: relative;
+        z-index: 5;
       }
 
       .form-group {
         margin-bottom: 24px;
+        position: relative;
+        z-index: 5;
       }
 
       .form-group label {
@@ -1134,6 +1140,8 @@
         font-size: 1rem;
         transition: all 0.3s ease;
         font-family: inherit;
+        position: relative;
+        z-index: 6;
       }
 
       .form-group input:focus,
@@ -1141,8 +1149,10 @@
         outline: none;
         border-color: var(--accent-primary);
         background: var(--bg-card);
-        box-shadow: 0 0 0 4px rgba(0, 209, 255, 0.1);
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
         transform: translateY(-2px);
+        position: relative;
+        z-index: 10;
       }
 
       /* Interest Grid */
